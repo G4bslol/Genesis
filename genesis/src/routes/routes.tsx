@@ -1,7 +1,8 @@
 import {
     BrowserRouter,
     Route,
-    Routes
+    Routes,
+    Navigate
   } from "react-router-dom";
 
   import { Home } from "../pages/home";
@@ -11,6 +12,7 @@ import {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </BrowserRouter>
     )
