@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+}
+header {
+    padding: 15px;
+    background-color: #292929c0;
+    border-radius: 30px;
+}
+#logo{
+    width: 5vmax;
+    height: 5vmax;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    gap: .8em;
+}
+
+    .container {
+        margin: 0.8em;
+        display: flex;
+        justify-content: space-between;
+        gap: 1em;
+        height: 90vh;
+        
+    }
+    
+    aside {
+        padding: 0.8em;
+        border-radius: 15px;
+        border: 3px solid #292929c0;
+        flex: 2;
+    }
+    main {
+        padding: 0.8em;
+        border: 3px solid #292929c0;
+        border-radius: 15px;
+        flex: 8;
+    }
+
+    table tr td {
+        display: flex;
+
+    }
+
+    img {
+        width: 30%;
+        height: auto;
+    }
+
+    .galery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8em;
+        justify-content: center;
+    }
+
+    .botoes {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+        
+    }
+
+    button {
+        background-color: rgb(235, 86, 143);
+        color: rgb(0, 0, 0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 0.8em;
+        border-radius: 15px;
+        line-height: 0;
+    }
+
+    button > img {
+        width: 20px;
+        height: auto;
+    }
+
+    footer {
+        display: flex;
+        align-items: center;
+        height: 8rem;
+        background-color: #121212;
+        justify-content: center;
+        color: white;
+        margin-top: 1rem;
+        font-size: 32px;
+    }
