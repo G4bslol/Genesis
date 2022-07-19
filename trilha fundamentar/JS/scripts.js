@@ -1,92 +1,74 @@
-// Controle de fluxo da aplicação
+// Buscando e contando dado em Array
 
-    // if / else
-
-    let temperatura = 36.9
+    /*
     
-    if (temperatura >= 37.5) {
-        console.log("Está com febre alta")
-    }
-    else if(temperatura < 37.5 && temperatura >= 37) {
-        console.log("febre moderada")
-        
-    }
-    else {
-        console.log("Saudável")
-        
-    }
+    Baseado no Array de livros por Categoria abaixo, faça os seguintes desafios:
 
-    // Switch
+        • Contar o número de categorias e o número de livros em cada categoria
+        • Contar o número de autores
+        • Mostrar os livros do autor Augusto Cury
+        • Transformar a função acima em uma função que irá receber o nome do autor e devolver os livros desse autor.
+    
+    */
 
-        let expression = 'a'
+        const booksByCategory = [
+            {
+                category: "Riqueza",
+                books: [
+                    {
+                        title: "Os segredos da mente milhonária",
+                        author: "T. Harv Eker",
+                    },
+                    {
+                        title: "O homem mais rico da Babilonia",
+                        author: "George S. Clason",
+                    },
+                    {
+                        title: "Pai rico, Pai pobre",
+                        author: "Robert T. Kiyosaki e Sharon L. Lechter",
+                    }
+                ],
+            },
+            {
+                category: "Inteligencia Emocional",
+                books: [
+                    {
+                        title: "Você é insubstituível",
+                        author: "Augusto Cury",
+                    },
+                    {
+                        title: "Ansiedade - Como enfrentar o mal do século",
+                        author: "Augusto Cury",
+                    },
+                    {
+                        title: "Os 7 hábitos das pessoas altamente eficazes",
+                        author: "Stephen R. Corvey",
+                    }
+                ],
+            },
+        ]
 
-        switch (expression) { // puxa a expressão para o switch
+        const totalCategories = booksByCategory.length
 
-        case 'a': // confere se o valor da expressão é o correto
-            console.log('a')
-            break // para a execução do switch apenas se verdadeiro
-            
-        case 'b':
-            console.log('b')
-            break
+        console.log(totalCategories)
 
-        default: // caso nenhum valor seja o correto, realizará a instrução dentro de si.
-
-            console.log('default')
-            break
+        for(let category of booksByCategory) {
+            console.log(`Total de livros da categoria: ${category.category}`)
+            console.log(category.books.length)
         }
 
-        // Temos também a calculadora que o professor construiu no vídeo:
+        function countAuthors() {
+            let authors = [];
 
-        function calculate(number1, operator, number2) {
-            let result = 0;
-
-            switch (operator) {
-                case '+':
-                    result = number1 + number2
-                    break
-                case '-':
-                    result = number1 - number2 
-                    break
-                case '*':
-                    result = number1 * number2
-                    break
-                case '/':
-                    result = number1 / number2 
-                    break
-                default:
-                    console.log('não implementado')
-                    break
-            }
-
-            return result
-        }
-
-        console.log(calculate(4, '%', 8)) // retornará Não implementado e 0
-
-    
-    // Throw e Try/Catch
-
-        // Throw em inglês significa lançar, disparar, catch quer dizer pegar e try tentar.
-
-        // Isso significa que vamos tentar executar um bloco de código, e se der algum erro, será disparado e capturado na nossa aplicação. Suponhamos que haja uma função que dispare um erro caso não seja passado um parâmetro dessa função.
-        
-            function sayMyName(nome = '') {
-                if (nome === '') {
-                    throw 'Nome é obrigatório'
+            for (let category of booksByCategory) {
+                for(let book of category.books) {
+                    if (authors.indexOf(book.author) == -1) {
+                        authors.push(book.author)
                 }
-            
-                console.log(nome)
-            }
+        }
+    }
 
-        // Nesse caso, se o nome vier vazio, será disparada uma mensagem.
-        
-        // Precisamos agora usar o try/catch para capturarmos esse erro, caso contrário, ele irá encerrar nossa aplicação, e nós o faremos da seguinte maneira:
-        
-            try {
-                sayMyName()
-            } catch(e) {
-                console.log(e)
-            }
-            
-            console.log('após ao try/catch')
+        console.log('Total de autores: ', authors.length)
+}
+
+    countAuthors();
