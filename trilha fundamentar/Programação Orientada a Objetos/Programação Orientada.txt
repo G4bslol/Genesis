@@ -1,0 +1,86 @@
+• Objetos
+
+	• Propriedades e Funcionalidades
+	• Estado e Comportamentos
+	• Atributos e Métodos
+
+* Abstratro vs Mundo Real
+	
+	• Pessoa
+	• Aluno
+	• Produto
+	• Carrinho de Compras
+
+	- - - - - - - 
+
+	• Autenticação
+	• Autorização
+
+   Nem todo objeto do mundo real fará 
+    parte do seu sistema!
+
+
+• Classes
+  As classes na Orientação a Objetos funcionam como um
+  molde para objetos. Os objetos são criados a partir
+  de uma classe e muitos deles podem ser feitos da mesma
+  classe.
+
+	• Exemplo: Máquina de Biscoito
+		• Instâncias
+
+• Classes in Js
+
+	• Syntactical Sugar
+	• Prototype
+
+• Encapsulamemto
+    Dirigir carro vs conhecer o motor
+
+	• Colocar numa cápsula
+	• Agrupamento de funções e variáveis
+	• Esconder detalhes de implementação
+	• Camada de segurança para os atributos e métodos
+
+• Confusão e Solução
+  Programação Estruturada x Orientação a Objetos
+
+ Programação Estruturada		Programação Orientada a Objetos
+
+      • Processa a entrada e		    • Surge para trazer um cuidado ao
+        manipulação dos dados,			estruturado
+        até a saída.				  • Não elimina por completo o 		
+    						    estruturado
+      • Uso de sequências, estruturas	    
+        de repetições e condições.	    • Conceitos como Objetos e Classes
+					    
+      • Uso de uma rotina maior, ou	    • Cuidados com variáveis e rotinas
+	sub-rotinas				(Encapsulamento)
+
+      • Não existem restrinções às	    • Melhor reuso de código (Herança)
+	variáveis
+
+• Herança
+
+    • Pais e Filhos
+    • Objetos podem herdar atributos e métodos de outra classe
+
+• Polimorfismo
+
+	Quando um objeto estende de outro (herança) talvez haja a necessidade de
+	reescrever uma ou mais caracteristicas (atributos e métodos) nesse novo
+	objeto.
+	
+	Recriaremos então um método (ou mais) da classe herdada.
+	
+	Polimorfismo significa muitas formas
+
+• Abstração
+	
+	Template ou ldentidade de uma classe que será construída no futuro
+	
+	•  Atributos e métodos podem ser criados na classe de Abstração
+	  (Superclasse) MAS
+	
+	• A implementação dos métodose atributos, só poderáser feita na classe
+	  que irá herdar essa Abstração
