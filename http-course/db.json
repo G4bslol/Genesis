@@ -1,0 +1,13 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "title": "jhson-server2",
+      "author": "gabriel lucas"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "gabriel"
+  }
+}
