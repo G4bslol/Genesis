@@ -1,4 +1,4 @@
-import React, { useState } from 'React'
+import { useState, useEffect } from 'react'
 import './styles.css';
 import { Card } from '../../components/Card/index'
 
@@ -22,6 +22,10 @@ export function Home() {
   }
 
 
+  useEffect(() => {
+    console.log("useEffect foi chamado")
+  }, [peopleName])
+
   return (
     <>
 
@@ -35,17 +39,19 @@ export function Home() {
           </div>  
         </header> 
 
-        <input
-        
-        type="text"
-        placeholder="Digite o Nome..."
-        onChange={evt => setPeopleName(evt.target.value)}
-        />
+          <input
+          type="text"
+          placeholder="Digite o Nome..."
+          onChange={evt => setPeopleName(evt.target.value)}
+          />
 
-        <button type="button" onClick={handleAddPeople}
-        >Adicionar
-        </button>
-
+          <button
+            
+            type="button"
+            onClick={handleAddPeople} 
+          
+          >Adicionar
+          </button>
       
         {
           people.map(people => 
