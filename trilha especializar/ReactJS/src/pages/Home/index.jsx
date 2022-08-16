@@ -6,6 +6,7 @@ export function Home() {
 
   const [peopleName, setPeopleName] = useState();
   const [people, setPeople] = useState([]);
+  const [user, setUser] = useState({name: '', avatar: ''});
   
   
   function handleAddPeople() {
@@ -23,8 +24,18 @@ export function Home() {
 
 
   useEffect(() => {
-    console.log("useEffect foi chamado")
-  }, [peopleName])
+    async function fetchData() {
+      const response = await fetch('https://api.github.com/users/G4bslol')
+      const data = await response.json();
+      setUser({
+        name: data.name,
+        avatar: data.avatar_url
+      });
+    }
+
+    fetchData();
+
+  }, [])
 
   return (
     <>
@@ -34,8 +45,8 @@ export function Home() {
         <header>
             <h1> Lista de Presença </h1>
           <div>
-            <strong> Gabriel Lucas </strong>  
-            <img src="https://github.com/G4bslol.png" alt="Foto de Perfil" />
+            <strong> {user.name} </strong>  
+            <img src={user.avatar} alt="Foto de Perfil" />
           </div>  
         </header> 
 
