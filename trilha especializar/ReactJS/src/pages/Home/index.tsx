@@ -65,6 +65,8 @@ export function Home() {
           onChange={(e) => setPeopleName(e.target.value)}
           />
 
+          <div />
+
           <button
             
             type="button"
