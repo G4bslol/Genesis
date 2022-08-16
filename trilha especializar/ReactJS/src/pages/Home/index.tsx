@@ -1,12 +1,21 @@
 import { useState, useEffect } from 'react'
 import './styles.css';
-import { Card } from '../../components/Card/index'
+import { Card, CardProps } from '../../components/Card/index'
 
+type ProfileResponse = {
+  user_name: string;
+  avatar_url: string;
+}
+
+type User = {
+  user_name: string;
+  avatar: string;
+}
 export function Home() {
 
-  const [peopleName, setPeopleName] = useState();
-  const [people, setPeople] = useState([]);
-  const [user, setUser] = useState({name: '', avatar: ''});
+  const [peopleName, setPeopleName] = useState('');
+  const [people, setPeople] = useState<CardProps[]>([]);
+  const [user, setUser] = useState<User>({} as User);
   
   
   function handleAddPeople() {
@@ -19,16 +28,16 @@ export function Home() {
       })
     };
 
-    setPeople(prevState => [...prevState, newPeople])
+    setPeople([...people, newPeople])
   }
 
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch('https://api.github.com/users/G4bslol')
-      const data = await response.json();
+      const data = await response.json() as ProfileResponse;
       setUser({
-        name: data.name,
+        user_name: data.user_name,
         avatar: data.avatar_url
       });
     }
@@ -45,7 +54,7 @@ export function Home() {
         <header>
             <h1> Lista de Presença </h1>
           <div>
-            <strong> {user.name} </strong>  
+            <strong> {user.user_name} </strong>  
             <img src={user.avatar} alt="Foto de Perfil" />
           </div>  
         </header> 
@@ -53,7 +62,7 @@ export function Home() {
           <input
           type="text"
           placeholder="Digite o Nome..."
-          onChange={evt => setPeopleName(evt.target.value)}
+          onChange={(e) => setPeopleName(e.target.value)}
           />
 
           <button
