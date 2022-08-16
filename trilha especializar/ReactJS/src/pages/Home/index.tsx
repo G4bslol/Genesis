@@ -3,12 +3,12 @@ import './styles.css';
 import { Card, CardProps } from '../../components/Card/index'
 
 type ProfileResponse = {
-  user_name: string;
+  name: string;
   avatar_url: string;
 }
 
 type User = {
-  user_name: string;
+  name: string;
   avatar: string;
 }
 export function Home() {
@@ -37,7 +37,7 @@ export function Home() {
       const response = await fetch('https://api.github.com/users/G4bslol')
       const data = await response.json() as ProfileResponse;
       setUser({
-        user_name: data.user_name,
+        name: data.name,
         avatar: data.avatar_url
       });
     }
@@ -54,7 +54,7 @@ export function Home() {
         <header>
             <h1> Lista de Presença </h1>
           <div>
-            <strong> {user.user_name} </strong>  
+            <strong>{user.name}</strong>  
             <img src={user.avatar} alt="Foto de Perfil" />
           </div>  
         </header> 
