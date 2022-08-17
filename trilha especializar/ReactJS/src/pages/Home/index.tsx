@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
-import './styles.css';
 import { Card, CardProps } from '../../components/Card/index'
+import { Link } from "react-router-dom";
+import { Header } from '../../components/Header'
+import {Container} from './styles'
 
 type ProfileResponse = {
   name: string;
@@ -16,8 +18,7 @@ export function Home() {
   const [peopleName, setPeopleName] = useState('');
   const [people, setPeople] = useState<CardProps[]>([]);
   const [user, setUser] = useState<User>({} as User);
-  
-  
+
   function handleAddPeople() {
     const newPeople = {
       name: peopleName,
@@ -30,7 +31,6 @@ export function Home() {
 
     setPeople([...people, newPeople])
   }
-
 
   useEffect(() => {
     async function fetchData() {
@@ -48,46 +48,46 @@ export function Home() {
 
   return (
     <>
-
-      <div className="container">
+      <Container>
+        <Header />
 
         <header>
-            <h1> Lista de Presença </h1>
+          <h1> Lista de Presença </h1>
           <div>
-            <strong>{user.name}</strong>  
+            <strong>{user.name}</strong>
             <img src={user.avatar} alt="Foto de Perfil" />
-          </div>  
-        </header> 
+          </div>
+        </header>
 
-          <input
+        <input
           type="text"
           placeholder="Digite o Nome..."
           onChange={(e) => setPeopleName(e.target.value)}
-          />
+        />
 
-          <div />
+        <div />
 
-          <button
-            
-            type="button"
-            onClick={handleAddPeople} 
-          
-          >Adicionar
-          </button>
-      
+        <button
+
+          type="button"
+          onClick={handleAddPeople}
+
+        >Adicionar
+        </button>
+
         {
-          people.map(people => 
+          people.map(people =>
             <Card
-            
+
               key={people.time}
               name={people.name}
               time={people.time}
-              
-            /> 
-            )
+
+            />
+          )
         }
 
-      </div>
+      </Container>
     </>
-    )
+  )
 }
